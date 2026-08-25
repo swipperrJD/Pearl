@@ -2,7 +2,10 @@ import './App.css'
 
 function App() {
   const items = [
-    { name: 'School', type: 'Folder' },
+    { name: 'School', 
+      type: 'Folder',
+      path: 'C:\\Users\\diong\\OneDrive\\Desktop' 
+    },
     { name: 'Apps', type: 'Folder' },
     { name: 'VS Code', type: 'Application' },
     { name: 'Steam', type: 'Application' },
@@ -19,7 +22,11 @@ function App() {
       
       <div className="launcher-grid">
         {items.map((item) => (
-          <button className="launcher-card" key={item.name}>
+          <button 
+            className="launcher-card" 
+            key={item.name}
+            onClick={() => window.pearl.openPath(item.path)}
+          >
             <div className="card-icon">
               {item.type === 'Folder' ? '📁' : '◈'}
             </div>
